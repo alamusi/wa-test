@@ -11,6 +11,7 @@ Memory Consumption
 - Java takes ~9mb
 - Python takes ~4mb
 - WebAssemby takes ~7mb
+- Go takes ~0.8mb
 
 Fibonacci (Recursive)
 
@@ -18,6 +19,7 @@ Fibonacci (Recursive)
 - Java takes ~420 ms
 - Python takes ~60000 ms
 - WebAssembly takes ~900 ms
+- Go takes ~750 ms
 
 Slow (Math)
 
@@ -32,3 +34,4 @@ Slow (Math)
   - WebAssembly takes ~900 ms (NativeMath at 64bit)
   - WebAssembly takes ~350 ms (NativeMathf at 32bit) with less precision
   - WebAssembly takes ~2000 ms (JSMath at 64bit)
+- Go takes ~610 ms
