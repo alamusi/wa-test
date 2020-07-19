@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --debug",
-    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --optimize",
-    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap -O",
+    "asbuild:speed": "asc assembly/index.ts -b build/speed.wasm -t build/speed.wat --sourceMap -O3",
+    "asbuild:size": "asc assembly/index.ts -b build/size.wasm -t build/size.wat --sourceMap -O3z",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized && npm run asbuild:speed && npm run asbuild:size"
   },
   "author": "alamusi",
   "license": "ISC",
