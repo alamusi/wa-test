@@ -16,17 +16,17 @@ module.exports = function (build) {
   console.log('fibo', result, 'in webassembly runs', finish - start)
 
   start = Date.now()
-  result = wasmModule.slow64(10)
+  result = wasmModule.slow64(10000000)
   finish = Date.now()
   console.log('slow', result, 'in webassembly (64-bit) runs', finish - start)
 
   start = Date.now()
-  result = wasmModule.slow32(10)
+  result = wasmModule.slow32(10000000)
   finish = Date.now()
   console.log('slow', result, 'in webassembly (32-bit) runs', finish - start)
 
   start = Date.now()
-  result = wasmModule.slowJS(10)
+  result = wasmModule.slowJS(10000000)
   finish = Date.now()
   console.log('slow', result, 'in webassembly (JSMath) runs', finish - start)
 }

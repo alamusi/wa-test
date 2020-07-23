@@ -24,14 +24,14 @@ Fibonacci (Recursive)
 Slow (Math)
 
 - JavaScript takes ~1100 ms
-- Java takes ~4400 ms
-- Python takes ~10000 ms
+- Java takes ~1500 ms
+- Python takes ~6500 ms
 - WebAssembly (with default `-O` and optimization for size `-O3z`)
-  - WebAssembly takes ~1500 ms (NativeMath at 64bit)
-  - WebAssembly takes ~420 ms (NativeMathf at 32bit) with less precision
-  - WebAssembly takes ~2000 ms (JSMath at 64bit)
+  - WebAssembly takes ~1100 ms (NativeMath at 64bit)
+  - WebAssembly takes ~430 ms (NativeMathf at 32bit) with less precision
+  - WebAssembly takes ~1300 ms (JSMath at 64bit)
 - WebAssembly (with optimization for speed `-O3` per @MaxGraey)
-  - WebAssembly takes ~900 ms (NativeMath at 64bit)
-  - WebAssembly takes ~350 ms (NativeMathf at 32bit) with less precision
-  - WebAssembly takes ~2000 ms (JSMath at 64bit)
-- Go takes ~610 ms
+  - WebAssembly takes ~560 ms (NativeMath at 64bit)
+  - WebAssembly takes ~320 ms (NativeMathf at 32bit) with less precision
+  - WebAssembly takes ~1300 ms (JSMath at 64bit)
+- Go takes ~570 ms

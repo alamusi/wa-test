@@ -13,9 +13,12 @@ function fibo (n) {
 
 function slow (n) {
   let result = 0
-  const len = Math.pow(n, 7)
-  for (let i = 0; i < len; i++) {
-    result += Math.atan(i) * Math.tan(i)
+  const invN = 1 / n
+  let i = 0
+  while (i < n) {
+    const x = Math.pow(i * invN, 7)
+    result += Math.atan(x) * Math.tan(x)
+    i++
   }
   return result
 }
@@ -26,6 +29,6 @@ let finish = Date.now()
 console.log('fibo', result, 'in js runs', finish - start)
 
 start = Date.now()
-result = slow(10)
+result = slow(10000000)
 finish = Date.now()
 console.log('slow', result, 'in js runs', finish - start)

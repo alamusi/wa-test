@@ -16,9 +16,12 @@ func fibo(n int) int {
 
 func slow(n float64) float64 {
 	var result float64
-	var i int64
-	for i = 0; i < int64(math.Pow(n, 7)); i++ {
-		result += math.Atan(float64(i)) * math.Tan(float64(i))
+	var invN float64 = 1 / n
+	var i float64
+	for i < n {
+		x := math.Pow(i*invN, 7)
+		result += math.Atan(float64(x)) * math.Tan(float64(x))
+		i++
 	}
 	return result
 }
@@ -30,7 +33,7 @@ func main() {
 	fmt.Println("fibo", result, "in Go runs", finish.Sub(start))
 
 	start = time.Now()
-	r2 := slow(10)
+	r2 := slow(10000000)
 	finish = time.Now()
 	fmt.Println("slow", r2, "in Go runs", finish.Sub(start))
 }

@@ -13,9 +13,11 @@ class Cal {
 
   public static double slow (double n) {
     double result = 0;
+    double invN = 1 / n;
     int i = 0;
-    while (i < Math.pow(n, 7)) {
-      result += Math.atan(i) * Math.tan(i);
+    while (i < n) {
+      double x = Math.pow(i * invN, 7);
+      result += Math.atan(x) * Math.tan(x);
       i++;
     }
     return result;
@@ -28,7 +30,7 @@ class Cal {
     System.out.println("fibo " + result + " in Java runs " + (finish - start));
 
     start = System.currentTimeMillis();
-    double r2 = slow(10);
+    double r2 = slow(10000000);
     finish = System.currentTimeMillis();
     System.out.println("slow " + r2 + " in Java runs " + (finish - start));
   }
