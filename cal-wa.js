@@ -1,32 +1,26 @@
 'use strict'
 
-/**
- * WebAssembly implementation
- */
 const fs = require('fs')
-const loader = require('@assemblyscript/loader')
-const imports = { /* imports go here */ }
+const { WASI } = require("wasi")
+const wasi = new WASI()
 
 module.exports = function (build) {
-  const wasmModule = loader.instantiateSync(fs.readFileSync(`${__dirname}${build}`), imports).exports
-
-  let start = Date.now()
-  let result = wasmModule.fibo(40)
-  let finish = Date.now()
-  console.log('fibo', result, 'in webassembly runs', finish - start)
-
-  start = Date.now()
-  result = wasmModule.slow64(10000000)
-  finish = Date.now()
-  console.log('slow', result, 'in webassembly (64-bit) runs', finish - start)
-
-  start = Date.now()
-  result = wasmModule.slow32(10000000)
-  finish = Date.now()
-  console.log('slow', result, 'in webassembly (32-bit) runs', finish - start)
-
-  start = Date.now()
-  result = wasmModule.slowJS(10000000)
-  finish = Date.now()
-  console.log('slow', result, 'in webassembly (JSMath) runs', finish - start)
+  const imports = { wasi_snapshot_preview1: wasi.wasiImport }
+  const wasmBuffer = fs.readFileSync(`${__dirname}${build}`)
+  WebAssembly.instantiate(wasmBuffer, imports).then(wasmModule => {
+    let start = Date.now()
+    let result = wasmModule.instance.exports.fibo(40)
+    let finish = Date.now()
+    console.log('fibo', result, 'in webassembly runs', finish - start)
+  
+    start = Date.now()
+    result = wasmModule.instance.exports.slow64(10000000)
+    finish = Date.now()
+    console.log('slow', result, 'in webassembly (64-bit) runs', finish - start)
+  
+    start = Date.now()
+    result = wasmModule.instance.exports.slow32(10000000)
+    finish = Date.now()
+    console.log('slow', result, 'in webassembly (32-bit) runs', finish - start)
+  })
 }

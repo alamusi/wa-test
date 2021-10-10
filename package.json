@@ -1,22 +1,24 @@
 {
   "name": "wa-test",
-  "version": "0.1.0",
-  "description": "webassembly test",
+  "version": "0.2.0",
+  "description": "webassembly test with assembly script",
   "main": "index.js",
   "scripts": {
     "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --debug",
-    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap -O",
-    "asbuild:speed": "asc assembly/index.ts -b build/speed.wasm -t build/speed.wat --sourceMap -O3",
-    "asbuild:size": "asc assembly/index.ts -b build/size.wasm -t build/size.wat --sourceMap -O3z",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat -O",
+    "asbuild:speed": "asc assembly/index.ts -b build/speed.wasm -t build/speed.wat -O3",
+    "asbuild:size": "asc assembly/index.ts -b build/size.wasm -t build/size.wat -O3z",
     "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized && npm run asbuild:speed && npm run asbuild:size"
   },
   "author": "alamusi",
   "license": "ISC",
   "dependencies": {
-    "@assemblyscript/loader": "^0.13.0"
+    "@assemblyscript/loader": "0.19.17",
+    "as-wasi": "0.4.6",
+    "wasi": "0.0.6"
   },
   "devDependencies": {
-    "assemblyscript": "^0.13.0",
-    "standard": "^14.3.4"
+    "assemblyscript": "0.19.17",
+    "standard": "16.0.4"
   }
 }
