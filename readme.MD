@@ -53,7 +53,7 @@ Run (with wasmer)
 > `wasmer run ./build/optimized.wasm`
 
 Run (with nodejs)
-> `node --experimental-wasi-unstable-preview1 cal-wa-optimized.js`
+> `node --experimental-wasi-unstable-preview1 cal-wa.js optimized`
 
 # Result
 
@@ -65,4 +65,4 @@ Run (with nodejs)
 | Go 	| ~0.8 mb 	| ~570 ms 	| ~440 ms 	|  	|
 | Rust 	| ~0.3 mb 	| ~1300 ms 	| ~590 ms 	|  	|
 | WebAssembly  	| ~1 mb 	| ~870 ms 	| ~580 ms (64bit) 	| wasmer 	|
-| WebAssembly  	| ~9 mb 	| ~870 ms 	| ~560 ms (64bit) 	| nodejs 	|
+| WebAssembly  	| ~9 mb 	| ~850 ms 	| ~560 ms (64bit) 	| nodejs 	|
